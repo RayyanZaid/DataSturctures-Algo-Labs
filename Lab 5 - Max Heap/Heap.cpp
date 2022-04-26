@@ -11,6 +11,9 @@ Heap::Heap() {
 
 void Heap::enqueue(PrintJob* jobToInsert) {
 
+    if(this->numItems >= MAX_HEAP_SIZE) {
+        return;
+    }
     // insert in the last available spot
     this->arr[numItems] = jobToInsert;
 
@@ -39,30 +42,42 @@ void Heap::enqueue(PrintJob* jobToInsert) {
 
 
 void Heap::dequeue() {
+
+    if(this->numItems == 0) {
+        return;
+    }
     // Algorithm: 
     // 1) Swap root data with the last data
-
+    this->numItems--;
     PrintJob* temp = this->arr[0];
     this->arr[0] = this->arr[this->numItems];
     this->arr[this->numItems] = temp;
 
-    // 2) Decrement num
-    numItems--;
-    // 3) Move the new root down to where its supposed to be
+    // 2) Move the new root down to where its supposed to be
+    trickleDown(0);
 
+    // 3) Decrement num
+    
 }
 
 
-
+PrintJob* Heap::highest() {
+    if(this->numItems == 0) {
+        return nullptr;
+    }
+    return this->arr[0];
+}
 
 
 
 void Heap::print() {
 
-    for(int i = 0; i<4; i++) {
-    cout << "Priority: " << arr[i]->getPriority()
-        << ", Job Number: " << arr[i]->getJobNumber()
-        << ", Number of Pages: " << arr[i]->getPages()
-        << endl;
+    if(this->numItems == 0) {
+        return;
     }
+    cout << "Priority: " << arr[0]->getPriority()
+        << ", Job Number: " << arr[0]->getJobNumber()
+        << ", Number of Pages: " << arr[0]->getPages() 
+        << endl;
+    
 }

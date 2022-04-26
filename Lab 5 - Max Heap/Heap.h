@@ -34,8 +34,35 @@ private:
   /*This function is called by dequeue function
   to move the new root down the heap to the 
   appropriare location.*/
-  void trickleDown(int) {
-    
+  void trickleDown(int nodeIndex) {
+    int childIndex = nodeIndex*2 + 1;
+    int valueOfPriority = this->arr[nodeIndex]->getPriority();
+
+    while(childIndex < this->numItems) {  // as long as the parent has a child
+      // find max value among the parent node and its children
+      int maxValue = valueOfPriority;
+      int maxIndex = -1;
+
+      for(int i = 0; i<2 && i+childIndex < this->numItems; i++) { // going to check the children
+          int valueOfCurrentChild = this->arr[i+childIndex]->getPriority();
+          if(valueOfCurrentChild > maxValue) {
+            maxValue = valueOfCurrentChild;
+            maxIndex = i+childIndex;
+          }
+      }
+      // if the parent is the biggest value
+      if(maxValue == valueOfPriority) {
+        return;
+      }
+      else {
+          PrintJob* temp = this->arr[nodeIndex];      // swap the parent and child
+          this->arr[nodeIndex] = this->arr[maxIndex];
+          this->arr[maxIndex] = temp;
+
+          nodeIndex = maxIndex;         // make the nodeIndex the new parent for the next iteration
+          childIndex = 2*nodeIndex + 1;   // get the new child index
+      }
+    }
   }
 
   //You can include additional private helper functions here
