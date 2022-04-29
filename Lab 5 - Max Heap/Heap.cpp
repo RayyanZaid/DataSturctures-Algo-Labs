@@ -56,7 +56,7 @@ void Heap::dequeue() {
     // 2) Move the new root down to where its supposed to be
     trickleDown(0);
 
-    // 3) Decrement num
+    
     
 }
 
