@@ -22,9 +22,9 @@ class BSTree {
     void postOrder(Node* root) const {
         if(root != nullptr) {
 
-            preOrder(root->getLeft());
+            postOrder(root->getLeft());
 
-            preOrder(root->getRight());
+            postOrder(root->getRight());
 
             cout << root->getString() << "(" << root->getNum() << "), ";
         }
@@ -33,10 +33,41 @@ class BSTree {
     void inOrder(Node* root) const {
         if(root != nullptr) {
 
-            preOrder(root->getLeft());
+            inOrder(root->getLeft());
             cout << root->getString() << "(" << root->getNum() << "), ";
-            preOrder(root->getRight());
+            inOrder(root->getRight());
             
+        }
+    }
+
+    Node* search(Node* node, const string &key) const {
+        if(node == nullptr) {
+            return nullptr;
+        }
+        else if(node->getString() == key) {
+            return node;
+        }
+        else if(key > node->getString()) {
+            return search((node->getRight()),key);
+        }
+        else {
+            return search((node->getLeft()),key);
+        }
+    }
+
+    int height(Node* node) const {
+        if(node == nullptr) {
+            return -1;
+        }
+        else {
+            int leftHeight = height(node->getLeft());
+            int rightHeight = height(node->getRight());
+            if(leftHeight > rightHeight) {
+                return 1 + leftHeight;
+            }
+            else {
+                return 1 + rightHeight;
+            }
         }
     }
 

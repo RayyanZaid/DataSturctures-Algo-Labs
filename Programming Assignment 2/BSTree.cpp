@@ -58,13 +58,27 @@ void BSTree::remove(const string &key) {
             if(current->getRight() == nullptr && current->getLeft() == nullptr) {
                 // if it's the root
                 if(parent == nullptr) {
-                    this->root = nullptr;
+                    if(this->root->getNum() == 1) {
+                        this->root = nullptr;
+                        return;
+                    }
+                    this->root->decrement();
+                    
                 }
                 else if(parent->getLeft() == current) {
-                    parent->setLeft(nullptr);
+                    if(parent->getLeft()->getNum() == 1) {
+                        parent->setLeft(nullptr);
+                        return;
+                    }
+                    parent->getLeft()->decrement();
+                    
                 }
                 else {
-                    parent->setRight(nullptr);
+                    if(parent->getRight()->getNum() == 1) {
+                        parent->setRight(nullptr);
+                        return;
+                    }
+                    parent->getRight()->decrement();
                 }
 
                 
@@ -75,34 +89,66 @@ void BSTree::remove(const string &key) {
             // if the right is the one that's null (so the only child is left)
             else if(current->getRight() == nullptr) {   
                 if(parent == nullptr) { // if it is the root node with a left child
-                    this->root = current->getLeft();
+                    if(this->root->getNum() == 1) {
+                        this->root = current->getLeft();
+                        return;
+                        }
+                    this->root->decrement();  
                 }
 
                 // skipping over the current node  (look at ipad drawing for visualization)
                 else if(parent->getLeft() == current) {
-                    parent->setLeft(current->getLeft());
+                    if(parent->getLeft()->getNum() == 1) {
+                        parent->setLeft(current->getLeft());
+                        return;
+                    }
+                    parent->getLeft()->decrement();
                 }
+
                 else {
-                    parent->setRight(current->getLeft());  
+                    if(parent->getRight()->getNum() == 1) {
+                        parent->setRight(current->getLeft());
+                        return;
+                    }
+                    parent->getRight()->decrement(); 
+                
                 }
 
             }
             // if left is null (so only child is right)
             else if(current->getLeft() == nullptr) {
-                if(parent == nullptr) {
-                    this->root = current->getRight();
+                if(parent == nullptr) { // if it is the root node with a right child
+                    if(this->root->getNum() == 1) {
+                        this->root = current->getRight();
+                        return;
+                        }
+                    this->root->decrement();  
                 }
                 else if(parent->getLeft() == current) {
-                    parent->setLeft(current->getRight());
+                    if(parent->getLeft()->getNum() == 1) {
+                        parent->setLeft(current->getRight());
+                        return;
+                    }
+                    parent->getLeft()->decrement();
                 }
+
                 else {
-                    parent->setRight(current->getRight());
+                    if(parent->getRight()->getNum() == 1) {
+                        parent->setRight(current->getRight());
+                        return;
+                    }
+                    parent->getRight()->decrement(); 
+                
                 }
             }
 
 
             // 3) If node has 2 children
             else {
+
+
+                if(current->getNum() <= 1) {
+                
                 // find leftmost elemnt of the node to remove's right subtree
                 // this will be the successor
                 Node* successor = current->getRight();
@@ -116,6 +162,10 @@ void BSTree::remove(const string &key) {
                 remove(successor->getString());
                 // replace current's data with the successor's
                 current->setData(successorString, successorNum);
+                return;
+                }
+
+                current->decrement();
             }
 
             return; // if this runs, the node was found and removed
@@ -138,20 +188,13 @@ void BSTree::remove(const string &key) {
 }
 
 bool BSTree::search(const string &key) const {
-    Node* currentNode = this->root;
+   Node* result = search(this->root,key);
 
-    while(currentNode!=nullptr) {
-        if(currentNode->getString() == key) {
+    if(result) {
         return true;
-        }
-        else if(currentNode->getString() > key) {
-            currentNode = currentNode->getLeft();
-        }
-        else {
-            currentNode = currentNode->getRight();
-        }
     }
     return false;
+    
 }
 
 
@@ -167,8 +210,27 @@ string BSTree::largest() const {
 }
 
 string BSTree::smallest() const {
-    return "";
+    if(this->root == nullptr) {
+        return "";
+    }
+    Node* current = this->root;
+    while(current->getLeft() != nullptr) {
+        current = current->getLeft();
+    }
+    return current->getString();
 }
+
+int BSTree::height(const string& key) const {
+    Node* node = search(this->root,key);
+    if(node != nullptr) {
+        return height(node);
+    }
+    else {
+        return -1;
+    }
+}
+
+
 void BSTree::preOrder( ) const { 
     preOrder(this->root);
     cout << endl;
@@ -181,3 +243,4 @@ void BSTree::inOrder( ) const {
     inOrder(this->root);
     cout << endl;
 }
+

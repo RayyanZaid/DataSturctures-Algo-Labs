@@ -1,0 +1,17 @@
+Internal node - any node with a child
+lead node - any node without a child
+
+types of trees
+
+full - every node has 2 or 0 children
+complete - when all levels (except sometimes last level) has 2 nodes and is pushed left
+perfect - obvious definition
+
+
+
+BST - Binary Search trees
+Left child is <= the parent 
+Right child is >= the parent
+
+the height of a tree is log2 (N)
+number of comparisons = height + 1

@@ -56,6 +56,10 @@ class Node {
         this->num = this->num + 1;
     }
 
+    void decrement() {
+        this->num = this->num - 1;
+    }
+
     void setData(string newString, int newNum) {
         this->str = newString;
         this->num = newNum;

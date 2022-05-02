@@ -1,0 +1,52 @@
+
+If a node has N keys, it must have N+1 children
+You can have children with a different number of nodes
+Order - the maximum number of children a node can have
+	ex. if order is 4, it can have 1-3 keys and up to 4 children
+	children DEPEND on KEY of the parent
+	if parent has 1 key, it MUST have 2 children
+	
+	
+	2-3-4 tree node means you it can have 1,2, or 3 keys which means it can have 2-4 children
+	
+
+Insertion and Splitting
+
+Split - done on every FULL node in a tree where you:
+		1. move the middle key from the child node to the parent node
+		2. split the children into separate nodes
+	
+Root node is split into 3 nodes while the rest of the internal nodes are split into 2
+Inserting always happens into a non full leaf node. If leaf node is full, then split it (uaing preemptive split)
+
+
+Removing and Rotation
+
+Does not change height
+
+Right rotation: Rotates rightmost element in left child to the root 
+				Rotates the roots left element into the middle child
+				
+Left rotation: Rotates leftmost element in right child to the root 
+			   Rotates the roots right element into the middle child
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

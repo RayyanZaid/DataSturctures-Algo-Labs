@@ -57,9 +57,9 @@ int main( ) {
           tree.insert(entry);
         } 
         else if (choice == 2) {
-          cout << "Enter string to remove: ";
+          cout << "Enter string to remove: " << endl;
           getline(cin, entry);
-          cout << endl;
+          
           tree.remove(entry);
           
         } 
@@ -68,26 +68,31 @@ int main( ) {
         } 
 
         else if (choice == 4) {
-          cout << "Enter string to search for: ";
+          cout << "Enter string to search for: " << endl;
           getline(cin, entry);
-
-          cout << endl;
 
           if (tree.search(entry)) {
             cout << "Found" << endl;
           }
           else {
-        cout << "Not Found" << endl;
+            cout << "Not Found" << endl;
           }
         } 
         
         else if (choice == 5) {
-          cout << "Smallest: " << endl;
-        } else if (choice == 6) {
-          cout << "Largest: " << endl;
+          cout << "Smallest: ";
+          cout << tree.smallest() << endl;
+        } 
+        
+        else if (choice == 6) {
+          cout << "Largest: ";
           cout << tree.largest() << endl;
-        } else if (choice == 7) {
-          cout << "Enter string: ";
+        } 
+        
+        else if (choice == 7) {
+          cout << "Enter string: " << endl;
+          getline(cin,entry);
+          cout << "Height of subtree rooted at " << entry << ": " << tree.height(entry) << endl;
         }
         //fix buffer just in case non-numeric choice entered
 
