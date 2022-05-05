@@ -1,0 +1,97 @@
+Asymptotic time analysis
+
+for a in A
+    for b in B
+        output
+
+Asymptotic runtime: O(n*m)
+
+for x in A
+    i <-- n 
+    while i>=1  
+    i <-- i/2
+
+Asymptotic Runtime: n * log(n)
+
+
+which one is faster: unknown because you don't know how big the inputs are
+
+Asymptotic doesn't tell us how fast, but rather the growth rate
+
+
+Linked Lists
+
+Benefit of dummy node (dummy head and tail) - 
+you don't have to constantly change the head and tail 
+pointers whenever you add/remove a node
+can insert after dummy node without thinking about the conditions
+Avoids segmentation fault from edge cases.
+
+doubly linked lists - 
+helps to traverse backwards
+
+binary tree - each node has 0 - 2 children
+
+how to implement a binary search tree: linked list and array
+BST: how to build, how to implement
+
+
+
+
+
+
+
+tree is a type of graph
+
+
+
+Stack 
+methods of stacks and their runtimes
+all their operations are constant time (except for destroying)
+
+Last in first out
+
+Queue
+First in is the first one out
+
+priority queue is equivalent to a max heap
+Dequeuing value from priority queue Asymptotic runtime: log(n)
+
+
+
+SORTING 
+
+which sorting algorithms are the best for certain cases
+
+Exceptions
+
+purpose of try and catch - to catch preventable or undesireable behavior from the code inside the statement
+types of errors you can catch: runtime, logic, overflow,
+CANNOT catch compiler error (since if there is a compiler error, you dont run the program)
+
+HEAPS 
+
+key >= children keys
+add element to the end and then percolate up if necessary
+
+Build max heap using numbers: {13,5,6,8,15,12,7,1} // implemented using array?
+
+Write down rules of max heap here: 
+
+
+          15 
+    13          12
+5      8      6     7
+
+
+
+
+
+
+// will post these 4
+
+heapifying an array
+use stack to convert infix to postfix
+implement dequeue
+using templates
+

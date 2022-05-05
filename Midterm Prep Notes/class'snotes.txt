@@ -1,0 +1,185 @@
+
+hi
+Meow hello :3
+
+Asymptotic Runtime Analysis (Big O runtime of programs): 
+//What’s lowercase a and b? Elements of the array??
+
+Input:  A: array, n: sizeof array
+  B: array, m: sizeof array
+for a in A do
+  for b in B do
+		output a+b
+
+Answer: O(n*m), since the arrays are two different sizes (n & m) with nested for-loops.
+
+Input: A: array, n: sizeof array
+for x in A do
+sum ← 0
+i ← n
+while i >= 1 do 
+i ← (i/ 2)
+sum ← sum + i
+output sum
+
+Note: When identifying the runtime of a loop, the time complexity of iterating through a fraction of a data set, where x is an integer and n be the number of elements, where the iterator is n/x (in this case i/2). The runtime is log(x * n). Which simplifies to log(n). [hopefully this is correct]
+
+Wait does anybody know if this is multiple choice? QwQ 
+At least partially
+
+If two arrays of different size, runtime is expressed in terms of the size of both, ie O(mn)
+
+Which one is faster?
+Unknown because sizes of n and m are unknown
+O(n) is slower than O(m^2) if n > m^2
+
+
+In a linked list, you learn about using a dummy node (head/tail). 
+	Question: What is the benefit of using a dummy node?
+	Answer: 
+You don’t have to create different insert cases
+Avoids segmentation fault from edge cases.
+
+What is the difference between a binary tree and a non-binary tree?
+
+A binary tree has 0-2 children
+A non-binary tree has an unspecified number of children
+
+What is a graph?
+System of nodes which contain data and point to other nodes
+
+What type of graph is a tree?
+Unidirectional: goes from parent to child (does not go from child to parent)
+Acyclical: contains no loops
+
+What is a BST?
+Binary search tree
+Left child <= parent <= right child 
+Each node is greater than all values in its left subtree
+Each node is lesser than all values in its right subtree
+
+BST Implementation:
+Array
+Left Child = (i*2)+1
+Right Child = (i*2)+2
+Linked List
+Be familiar with these two up top!!!
+
+Stack:
+Operations: (all operations are constant O(1) (except mb popping the whole stack))
+Peak/Top: Looks at the top (does not remove), returns top value
+Push: Inserts to top
+Pop: Removes top (Can return removed value)
+Data Structure:
+LIFO - Last-In-First-Out
+Elements are pushed onto the top and popped off the top 
+//is the top = front??back???
+Array example:
+[A,B,C,D,E,F]
+F is top
+Push in G
+[A,B,C,D,E,F,G]
+Peek
+Returns G
+Pop
+[A,B,C,D,E,F]
+Should return G (right?)
+
+Queue:
+Data Structure:
+FIFO - First-In-First-Out
+Operations:
+Peek: Returns (DOES NOT REMOVE) first element
+Push: Adds element to the end of the queue
+Pop: Returns AND removes first element
+Array example:
+[A,B,C]
+A is front, C is back
+Push in D
+[A,B,C,D]
+Peek
+Returns A
+Pop
+[B,C,D]
+Returns A
+
+void pop() {
+	--top;
+}
+^ array-based implementation of stack code!!
+
+What is wrong with the code?
+Doesn’t return the element
+Doesn’t check if the array is empty
+
+If you have a Priority Queue:
+Heap implementation
+What is the asymptotic runtime to dequeue
+Height of the stack is log(n)
+
+
+Asymptotic Runtimes of Sorting Algorithms can be found in the slides
+Should know which sorting algorithm is appropriate for situations
+Bubble sort = fixing heap property
+Selection/Insertion sort = small arrays
+Quicksort = faster in general, worst case scenario is just as slow as others
+Merge sort - for parallelism?
+
+Radix and bucket sort will not be part of the exam
+
+
+
+Exceptions:
+
+Try {
+	…
+}
+Catch (type e) {...}
+
+
+	Try 
+		…
+	Catch
+
+Prevents undefined behavior it try catch statements
+What kind of errors?
+Runtime errors
+Logical errors
+(user input errors)
+Overflow errors
+Cannot catch compiler errors (only compiler can catch these errors)
+
+
+
+Use the following list of numbers to make a max heap: {13, 5, 6, 8, 15, 12, 7, 1}
+ 	 15
+      	     13		 12
+    	5	8      6	         7
+      1
+
+Eg. 15 needs to be bubbled up in the initial heap because it’s bigger than 8. Above is the final heap
+
+Max Heap
+Insertion: Insert value into leaf node and “bubble up” value if they violate max-heap properties
+
+MIDTERM, LAB 6, AND PROGRAMMING ASSIGNMENT 2 ( found in chapter 4) ON FRIDAY (:
+Programming Assignment 2 can be submitted by next thursday, but be careful of things piling up & being left without time for program 3
+
+
+Wake me up, wake me up inside before you go-go
+Can’t wake up, wake me up inside
+Save me
+
+
+Remaining Questions (posted on canvas):
+
+Heapifying an array
+
+Using a stack to convert infix to postfix
+
+Implementing dequeuing
+
+Using templates
+
+
+
