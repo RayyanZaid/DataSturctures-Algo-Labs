@@ -1,0 +1,42 @@
+Make sure that if there are duplicates, the first of the same is sorted first
+quick and heap not stable
+
+good example is sorting by last name for appointment times
+
+radix, bucket, counting sort are noncomparative (more efficient with bigger data)
+
+non comparative puts assumptions on data
+
+sparse matrix is wasteful in noncomparative sorting 
+(where you dont use a category that you assumed) 
+thats why it is used in big data (since you will most likely use all your categories)
+noncomparative is big in ML
+
+
+sorting algorithm to sort 100 keys - Shell sort
+
+sort algorithm for 10,000 keys - use a noncomparative algorithm
+
+if you are almost done with sorting a data set, you could use bubble sort
+
+if its repetitive keys, use stable sorting  - mergesort
+
+if duplicate in data, you have limited number of stable sorting algorithms to use
+
+bucket sort is good when you have a normalized data sample
+
+
+Quicksort
+Merge
+Tim
+Heap
+
+problems
+noncomparative time complexity depends on number of buckets/other elements you choose
+need more space since you need space for the data structure that has the buckets (for bucketsort)
+
+for counting sort, you are not keeping actual data, but rather the count of each data
+
+
+
+

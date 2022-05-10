@@ -43,15 +43,3 @@ class myQueue {
             }
         }
 };
-
-int main() {
-    myQueue q = myQueue();
-    q.enqueue(5);
-    q.enqueue(6);
-    q.enqueue(7);
-    q.print();
-    cout << endl << endl;
-    q.dequeue();
-    q.print();
-
-}

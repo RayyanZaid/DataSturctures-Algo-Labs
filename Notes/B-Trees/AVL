@@ -1,0 +1,52 @@
+AVL Trees
+
+Main characteristics:
+1) Height of left and right subtrees cannot be off than more than 1
+2) Must have operations to readjust the height to adhere to the first step
+
+
+AVLs do NOT have to have minimum height
+ex. a tree with 7 nodes can have height floor(log7) = 2 or height 2*1.5 = 3
+
+When implementing, the height of each node is stored as a private data member
+
+When a node is inserted as the second child, the height of the ancestors do not change
+
+balance factor = left subtree height - right subtree height
+
+If balance factor of a node is +2, rotate it right (means there is extra on the left)
+If balance factor of a node is -2, rotate it left
+
+UpdateHeight - Parameters: node you want to update the height of
+    takes max of the subtree heights and adds 1
+
+SetChild - Parameters: 1) parent node 2) string text that says "left" or "right" to identify which child to change 3) child node
+    1) sets node as left/right child
+    2) updates parent pointer of the child
+    3) updates height of the parent
+
+ReplaceChild - Parameters:
+
+Rebalance - updates the height value of the node, computes the balance factor, and rotates it IF the balance factor is 2 or -2
+
+
+Insertions
+
+After an insert, rotate on the unbalanced node that is the closest to the inserted node
+
+An AVL insertion algorithm is O(log(n)) because in the worst case, it searches through 1.5*log(n) levels.
+After it searches for the place to insert, the insertion also takes log(n) because it:
+    1) Performs a rotation at a node (can encounter at most log(n) nodes) so O(log(n))
+    2) Updates the balance factor (note: updating balance factor takes O(1)) so O(log(n)) * O(1) = O(log(n))
+
+Insert algorithm assumes that you already set the height of the new node to 0 and the left and right pointers to nullptr
+
+COMPLEXITY
+Runtime: O(log(n)) 
+    BECAUSE you: 
+    1) traverse the tree from root to leaf (log(n) iterations) to find an insertion point
+    2) traverse back up the tree and rotate each node up to 2 times (log(n) * O(1) * O(1)) which is just log(n)
+        So, it is O(2*log(n)) which is just O(log(n))
+
+Space: O(1) 
+    BECAUSE there are only a fixed numbers of temp pointers needed

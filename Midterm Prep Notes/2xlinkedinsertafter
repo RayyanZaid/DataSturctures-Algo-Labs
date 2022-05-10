@@ -1,0 +1,18 @@
+
+
+node1 ->   node3
+       <-
+
+insert node2  AFTER node1
+
+
+Node* n = this->head;
+while(n != node1) {
+    n = n->next;
+}
+
+Node* tmpNext = node1->next;
+node1->next = node2;
+node2->prev = node1;
+node2->next = tmpNext;
+node2->next->prev = node2;

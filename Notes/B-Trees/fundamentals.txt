@@ -17,7 +17,7 @@ Split - done on every FULL node in a tree where you:
 		2. split the children into separate nodes
 	
 Root node is split into 3 nodes while the rest of the internal nodes are split into 2
-Inserting always happens into a non full leaf node. If leaf node is full, then split it (uaing preemptive split)
+Inserting always happens into a non full leaf node. If leaf node is full, then split it (using preemptive split)
 
 
 Removing and Rotation
