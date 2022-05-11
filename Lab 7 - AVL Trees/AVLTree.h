@@ -11,7 +11,7 @@ class AVLTree {
 
     // helpers
 
-        Node* findUnbalancedNode();
+        Node* findUnbalancedNode(Node* nodeAtInsertedPosition);
     // Find and return the closest unbalanced node (with balance factor of 2 or -2) to the inserted node.
     
         void rotate(); 
@@ -27,11 +27,41 @@ class AVLTree {
         if(root != nullptr) {
 
             printBalanceFactors(root->getLeft());
-            cout << root->getString() << "(" << root->getNum() << "), ";
+            cout << root->getString() << "(" << balanceFactor(root) << "), ";
             printBalanceFactors(root->getRight());
             
         }
     }
+
+        void UpdateHeight(Node* node) {
+            int leftHeight = -1;
+
+    // get heights of left and right subtrees
+
+            if(node->getLeft() != nullptr) {
+                leftHeight = node->getLeft()->getHeight();
+            }
+
+            int rightHeight = -1;
+
+            if(node->getRight() != nullptr) {
+                rightHeight = node->getRight()->getHeight();
+            }
+    // whichever is more + 1 will be the height of the node passed into the function
+
+            if(leftHeight >= rightHeight) {
+                node->setHeight(leftHeight+1);
+            }
+            else {
+                node->setHeight(rightHeight+1);
+            }
+            
+
+        }
+
+
+
+
         void visualizeTree(ofstream &, Node *);
     
 
@@ -43,7 +73,7 @@ class AVLTree {
     }
     void insert(const string &);   // insert and then rotate if necessary
 
-    int balanceFactor(Node*); // return balance factor of a given node
+    int balanceFactor(Node* n) const; // return balance factor of a given node
     
     void printBalanceFactors(); // print all balance factors in inorder
 
