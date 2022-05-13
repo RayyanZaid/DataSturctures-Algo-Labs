@@ -44,6 +44,7 @@ void AVLTree::insert(const string & str) {
             }
             else { // they are the same, increment the count of the current element
                 currentNode->addOne();
+                insertedNode = currentNode;
                 currentNode = nullptr;
             }
         }
