@@ -9,7 +9,65 @@ using namespace std;
 class BSTree {
 
     private:
+
+
+
     Node* root;
+
+
+
+    bool RemoveNode(Node* parent, Node* node) {
+        if(node == nullptr) {
+            return false;
+        }
+
+        // internal node with 2 children
+
+        if(node->getLeft() != nullptr && node->getRight() != nullptr) {
+            Node* succNode = node->getRight();
+            Node* successorParent = node;
+
+            while(succNode->getLeft() != nullptr) {
+                successorParent = succNode;
+                succNode = succNode->getLeft();
+            }
+            node->setData(succNode->getString(), succNode->getNum());
+            RemoveNode(successorParent,succNode);
+        }
+
+        else if(node == this->root) {
+            if(node->getLeft() !=nullptr) {
+                this->root = node->getLeft();
+            }
+            else {
+                this->root = node->getRight();
+            }
+        }
+
+        else if(node->getLeft() != nullptr) {
+            if(parent->getLeft() == node) {
+                parent->setLeft(node->getLeft());
+            }
+            else {
+                parent->setRight(node->getLeft());
+            }
+        }
+
+        else {
+            if(parent->getLeft() == node) {
+                parent->setLeft(node->getRight());
+            }
+            else {
+                parent->setRight(node->getRight());
+            }
+        }
+
+    return true;
+
+
+
+    }
+
     void preOrder(Node* root) const {
         if(root != nullptr) {
             cout << root->getString() << "(" << root->getNum() << "), ";
@@ -71,12 +129,51 @@ class BSTree {
         }
     }
 
+    
+
     public: 
     BSTree() {
         this->root = nullptr;
     }
 
-    
+    // added
+
+    Node* GetParent(Node* searchNode) {
+        return GetParentRecursive(this->root,searchNode);
+    }
+
+    Node* GetParentRecursive(Node* root, Node* node) {
+        if(root == nullptr) {
+            return nullptr;
+        }
+
+        if(root->getLeft() == node || root->getRight() == node) {
+            return root;
+        }
+
+        if(node->getString() < root->getString()) {
+            return GetParentRecursive(root->getLeft(), node);
+        }
+        return GetParentRecursive(root->getRight(), node);
+    }
+
+    Node* searchReturnsNode(string key) {
+        Node* nodeToRemove = this->root;
+
+        while(nodeToRemove != nullptr) {
+            if(key == nodeToRemove->getString()) {
+                return nodeToRemove; 
+            }
+            else if(key < nodeToRemove->getString()) {
+                nodeToRemove = nodeToRemove->getLeft();
+            }
+            else {
+                nodeToRemove = nodeToRemove->getRight();
+            }
+            
+    }
+    return nullptr;
+    }
     
     
     /* Mutators */
