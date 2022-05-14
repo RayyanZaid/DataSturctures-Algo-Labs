@@ -21,15 +21,18 @@ class BSTree {
             return false;
         }
 
+        if(node->getNum() != 1) {
+            node->decrement();
+        }
         // internal node with 2 children
 
-        if(node->getLeft() != nullptr && node->getRight() != nullptr) {
-            Node* succNode = node->getRight();
+        else if(node->getLeft() != nullptr && node->getRight() != nullptr) {
+            Node* succNode = node->getLeft();
             Node* successorParent = node;
 
-            while(succNode->getLeft() != nullptr) {
+            while(succNode->getRight() != nullptr) {
                 successorParent = succNode;
-                succNode = succNode->getLeft();
+                succNode = succNode->getRight();
             }
             node->setData(succNode->getString(), succNode->getNum());
             RemoveNode(successorParent,succNode);
@@ -63,8 +66,6 @@ class BSTree {
         }
 
     return true;
-
-
 
     }
 
