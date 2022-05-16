@@ -1,0 +1,20 @@
+
+REMOVE ALGO for Linear Probing
+
+Probes the buckets until either the bucket is "Empty since start" or the # buckets probed >= # total
+
+If bucket is empty since start, it stops probing because that means the element you want to remove does NOT exist
+
+so the while condition is if its not emptysincestart and if bucketsProbed < N
+
+the if inside the while is if the bucket is NOT empty and if the key at the bucket = the key searching for
+
+mid-square hash - 
+
+if key = 110
+N = 200
+R = 3
+
+110*110 = 12100
+R is middle 3 digits so R = 210
+210 % 200 = 10
