@@ -25,7 +25,7 @@ int HashTable::computeHash(const string &s) {
     for(unsigned i = 0; i< s.size(); i++) {
         sum+= (int)s[i];
     }
-    return(sum*3+size-30) % size;
+    return(sum*11+size-30) % size;
 
 }
 
@@ -38,12 +38,16 @@ int HashTable::computeHash(const string &s) {
 *   appropriate array index
 */
 void HashTable::put(const string &s, int score) {
+
+     // use the hash function to compute the key of the word
 	 int hash = computeHash(s);
 
      list<WordEntry>::iterator iterator;
 
+    // start the search at the hash location
      iterator = hashTable[hash].begin();
 
+    // iterate through the hash until
      while(iterator != hashTable[hash].end()) {
          if(iterator->getWord() == s) {
              iterator->addNewAppearance(score);
@@ -51,6 +55,9 @@ void HashTable::put(const string &s, int score) {
          }
          iterator++;
      }
+
+     WordEntry word = WordEntry(s, score);
+     this->hashTable->insert(iterator,1, word);
 
      
 }
@@ -69,13 +76,16 @@ double HashTable::getAverage(const string &s) {
     list<WordEntry>::iterator iterator;
 
     iterator = hashTable[hash].begin();
-
+    double average = 0;
     while(iterator != hashTable[hash].end()) {
         if(iterator->getWord() == s) {
+            
             return iterator->getAverage();
         }
         iterator++;
+   
     }
+
     return 2.0;
 }
 

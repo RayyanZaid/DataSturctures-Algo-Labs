@@ -19,7 +19,7 @@ int main() {
 	}
 	
 	//create hash table
-	HashTable table(20071);
+	HashTable table(100);
 	
 	while (!myfile.eof()) {
 	    myfile >> score;     // get score

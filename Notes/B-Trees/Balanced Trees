@@ -4,3 +4,36 @@ rotate a tree to balance
 
 talk about AVL
 red and black trees
+
+
+
+
+TO REPLACE THE ROOT IN A B-TREE
+the largest value in the rightmost child of the left subtree
+
+1) Move 35 (root) down, 36 (replacement) up, delete 35, rebalance
+
+when inserting, if the node becomes a full node, split the node
+
+
+if leaf is full when inserting, you split (not the best method, see below for better method)
+or you can preemptive split (every node that has 3 elements, we will split)
+
+when splitting, promote the middle elemnt up (full node has 3 elements, so promote second node)
+
+
+
+FOR FINAL:
+learn one way to insert a node into a B-Tree
+
+
+
+
+REMOVING
+
+when deleting leaf:
+
+
+finding candidate 
+swap 
+redistribute

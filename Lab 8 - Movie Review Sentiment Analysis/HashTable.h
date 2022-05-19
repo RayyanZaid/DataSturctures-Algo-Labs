@@ -19,7 +19,7 @@ class HashTable {
 	bool contains(const string &);
 	double getAverage(const string &);
 	void put(const string &, int);
- 
+	
  private:
 	int computeHash(const string &);
 };
