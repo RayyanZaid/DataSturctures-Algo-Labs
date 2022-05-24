@@ -1,0 +1,93 @@
+QuickSort
+
+An element is considered sorted when:
+The elements before it are smaller
+The element after it are bigger
+
+
+Divide and conquer algorithm (will divide the problem into sub problems)
+
+Algorithm Details
+
+
+Need a low and high index variable
+
+Need a pivot number - the pivot number is the number you are going to sort by following
+the conditions on lines 4,5
+
+Need an i and j index variable to traverse the list
+	i - starts at the beginning of list and find elements greater than the pivot
+	j - starts at the end of list and find elements less than the pivot
+
+
+Partitioning Algorithm
+
+Partition(low, high) 
+Parameters: low index and high index
+Returns the position in the list of where the partition value ends up
+
+Assign the pivot to be the value at the lowest index (or middle)
+Increment i and decrement j until i is at an element more than the pivot and j is at an element less than
+Swap the elements at those locations
+Keep going until i >= j
+swap the pivot with position j
+return j (the position of the pivot
+
+QuickSort Algorithm
+
+QuickSort(low, high)
+Parameters: low index and high index
+Returns nothing
+
+j = Partition(low,high)
+QuickSort(low,j)
+QuickSort(j+1,high)
+
+QuickSort Analysis
+
+At each level, you partition the elements which has a time complexity of basically n 
+(decreases by about half each time, but for really big data, you can just assume n)
+there are log base 2 of n levels because each time you go down a level, you divide the data by 2.
+
+So, the time complexity of QuickSort is n*log(n)
+
+Best Case: When the partition happens to be the median of the list because there will be an even
+amount of elements before and after the partition (thereby splitting the data into 2 even parts)
+
+Worst Case: When the partition happens to be the lowest number in the list (the data is already sorted)
+This is because:
+The data will be split extremely unevenly (will be split into first element and the rest of the list)
+So, if you split only one element each iteration, the partitioning runs n times, and for each 
+partition, you check n elements, so the time complexity is O(n^2).
+
+To improve worst case:
+1. Select middle element as pivot
+2. Select random element as pivot
+
+
+
+
+
+
+
+
+additional	
+Mom, I want some additional toys for my collection
+event - something that happens. 	
+region - 
+agreeable -
+
+
+examine	- 
+repair
+argue	
+example	
+ridiculous
+arrange	experience	scar
+assist	fatal
+
+
+
+
+
+
