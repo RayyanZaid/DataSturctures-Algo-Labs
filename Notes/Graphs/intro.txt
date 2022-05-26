@@ -1,0 +1,27 @@
+ adjacency list graph representation is a size of O(V + E)
+ because each vertex appears once and each edge appears twice
+ adjacency lists help can help represent a graph
+
+ adjacency matrix is O(V^2)
+
+
+ breadth-first search (BFS) is a traversal that visits a starting vertex, then all vertices of distance 1 from that vertex, then of distance 2, and so on, without revisiting a vertex.
+
+Algorithm
+
+BFS(startV) {
+    Enqueue startV in frontierQueue
+    Add startV to discoveredSet
+ 
+    while ( frontierQueue is not empty ) {
+       currentV = Dequeue from frontierQueue
+       "Visit" currentV
+       for each vertex adjV adjacent to currentV {
+          if ( adjV is not in discoveredSet ) {
+             Enqueue adjV in frontierQueue
+             Add adjV to discoveredSet
+          }
+       }
+    }
+ }
+ 

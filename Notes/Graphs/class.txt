@@ -1,0 +1,11 @@
+sparse matrices  %50 + 1 elements that are 0s
+
+optimize representation by compressing
+
+Incidence Matrix 
+O(V*E)
+
+Adjacency List
+good for sparse graphs where there aren't too many connections
+
+Adjacency Matrix
