@@ -70,24 +70,3 @@ To improve worst case:
 
 
 
-
-additional	
-Mom, I want some additional toys for my collection
-event - something that happens. 	
-region - 
-agreeable -
-
-
-examine	- 
-repair
-argue	
-example	
-ridiculous
-arrange	experience	scar
-assist	fatal
-
-
-
-
-
-
