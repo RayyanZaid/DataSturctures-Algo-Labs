@@ -1,0 +1,45 @@
+Breadth-first search (BFS) is a traversal that visits a starting vertex, 
+then all vertices of distance 1 from that vertex, then of distance 2, and 
+so on, without revisiting a vertex.
+
+Algorithm
+
+BFS(startV) {
+    Enqueue startV in frontierQueue
+    Add startV to discoveredSet
+ 
+    while ( frontierQueue is not empty ) {
+       currentV = Dequeue from frontierQueue
+       "Visit" currentV
+       for each vertex adjV adjacent to currentV {
+          if ( adjV is not in discoveredSet ) {
+             Enqueue adjV in frontierQueue
+             Add adjV to discoveredSet
+          }
+       }
+    }
+ }
+
+
+Depth-first search is a traversal that visits a starting vertex, then all vertices in a 
+certain direction until it reaches the end. Does this by pushing a start element into a stack
+
+When visiting each element, you have to get the current element and pop it off the stack
+and then check if you visted or not.
+if NOT visted (so if it is NOT in the visted set)
+1) visting it if it hasnt been visited, and adding it to the visted set 
+2) Pushing it's neighbors into the stack
+
+ DFS(startV) {
+   Push startV to stack
+
+   while ( stack is not empty ) {
+      currentV = Pop stack
+      if ( currentV is not in visitedSet ) {
+         "Visit" currentV
+         Add currentV to visitedSet
+         for each vertex adjV adjacent to currentV
+            Push adjV to stack
+      }
+   }
+}

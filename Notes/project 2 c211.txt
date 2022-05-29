@@ -1,0 +1,279 @@
+									
+									
+									MATH 011 Final Project 2
+1) 
+	
+	Person A cannot be innocent due to contradiction.
+	
+	Suppose A is innocent. 
+	That means that C is guilty from the first statement
+	That also means that C is innocent from the second statement.
+	Someone cannot be guilty and innocent at the same time.
+	
+	Therefore, by contradiction, A has to be guilty.
+
+2) 	
+	Since at least one of them have to be guilty, 
+	
+	C is one of them that has to be guilty, because if C is not guilty,
+	there is the possibility that none of them are guilty which would be a contradiction
+	to the first statement
+	
+
+	
+
+3)
+	
+	If A and B, then C 
+	If A	  , then B or C 
+	If C      , then D 
+	If not A  , then D
+	
+	D will be guilty regardless and everyone else is doubtful.
+	
+	Suppose A is guilty, that means that either B or C is guilty from (2). 
+	We can then take two paths:
+	Assume C is the guilty one, then D is automatically guilty from (3).
+	Assume B is the guilty one, then from (1), C is guilty too which means D is guilty from (3).
+	
+	Suppose A is innocent, that means that D is guilty from (4). 
+	
+	So whatever happens, D will always be guilty, but it is impossible to determine who he will work with.
+	
+	
+	
+4)
+
+	If A tells truth and B tells truth, there is a contradiction since A cannot be a knight and knave
+	If A tells truth and B lies, there is a contradiction because a knight (B) cannot lie
+	If A lies and B tells the truth, that could be true because B says A is a knave
+	If both lie, that is a contradiction because that would mean they are both knaves, but
+	if they are both knaves, B told the truth because he said A is a knave
+	
+	So, A is a knave, and B is a knight
+	
+
+5) 
+	Both cannot tell the truth or else A would have to be a knight but B says that they are opposite types
+	If A tells the truth and B lies, there would be a contradiction because B cannot be a knight and lie
+	If B tells truth and A lies, there would be a contradiction b/c B would have to be a knight and A
+	says B is a knight. So A would be telling the truth and lying at the same time
+	
+	So, they both are knaves.
+
+
+6)
+
+	Knight - truth
+	Knave - lie
+	Spy - either or
+	
+	There is one of each
+	
+	A - I am knight
+	B - I am knave
+	C - B is knight
+	
+	Assume B is a knight, that is a contradiction because then B would be lying
+		B is either spy or knave
+		
+		Assume B is a knave, that would be a contradiction because he says he is a knave, but 
+		knaves lie.
+			
+			B is a spy
+	
+	Assume C is knight, that is not possible because then B would be a knight, but B says he is 
+	a knave, so B would be lying
+		C is knave
+	
+	Assume A is knight. No contradiction
+	
+	So, 
+	A - knight
+	B - spy
+	C - knave
+
+7)
+	A - C is knave
+	B - A is knight
+	C - C is spy
+	
+	Assume B is a knight
+		That would be a contradiction because there cannot be 2 knights
+	
+	Assume A is a knight, 
+		That would mean that B has to be a spy because B would be telling the truth
+		C would have to be the knave since there is only one of each
+	
+	A - knight
+	B - spy
+	C - knave
+	
+8)
+	A - A is knight
+	B - A is knight
+	C - C is spy
+	
+	Assume B is a knight, that would be a contradiction because he says A is the knight and 2 people
+	cannot be the knight
+		B is either spy or knave
+	
+	Assume A is the knight
+		Then B would have to be a spy because he is not the knight but he is telling the truth.
+		That would leave C to be the knave
+	
+	A - knight
+	B - spy
+	C - knave
+	
+9)
+	We know that Mr. Cook is not a cook because of his initial statement. We also know he is 
+	not a carpenter.
+	Mr. Cook has to be the Sailor
+	
+	Now we have two professions left: Carpenter and Cook
+	
+	We know that the Mr. Carpenter cannot be a carpenter because of the initial statement
+	So Mr. Carpenter is the Cook.
+	
+	This means that Mr. Sailer is the Carpenter
+	
+
+10) 
+
+	TWO traitors: Jessica, Wellington, Halleck, Idaho
+	
+	Traitors will lie, Innocents will speak the truth
+	
+	
+	J    - Says J is NOT the traitor
+	W    - Says W is NOT the traitor
+	G    - Says J OR W is the traitor
+	D    - Says J OR G is the traitor
+	
+	possible combinations, each person can be paired with another once.
+	so 3 + 2 + 1 = 6 possible duos
+	
+	J and W 
+	J and G
+	J and D
+	W and G
+	W and D
+	G and D
+	
+	Assume J and W were traitors:
+		J and W lied
+		W and G told the truth
+	(this could be a possibility)
+	
+	Assume J and G:
+		J lied
+		G could have told the truth because he said J OR W and J was assumed
+		So in this case, J is the only one who lied
+	(Therefore, this is an impossible duo)
+	
+	Assume J and D:
+		Only J lied
+		D could have been telling the truth
+	(impossible duo)
+	
+	Asusme W and G:
+		Only W lied
+	(impossible duo)
+	
+	Assume W and D:
+		Both lied
+	(possibility)
+	
+	Assume G and D:
+		G lied
+		D could have told truth
+	(impossible)
+	
+	So, the only two possible pairs would be (J and W) OR (W and D).
+	Wellington is in each of these, so he can report Wellington
+		
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	Tax = 10%
+	
+	Store
+	
+	
+	Eggs - $10
+	Milk - $20
+	Tax = $3
+	
+	Subtotal = $30			subtoal - before the tax  	
+	Total = $30				total - after the tax
+	
+	
+	
+	double subtotal;
+	
+	double total = 1.1 * subtotal;
+	
+	
+	
+	
+	every time you addItem
+	
+	add the price of the item to subtotal
+	
+	
+	
+	main
+	subtotal = 0
+	t.addItem(Eggs, 10)
+	subtotal <----- subtotal + 10
+	subtotal = 10;
+	
+	t.addItem(Milk,20)
+	30 <----- 10 + 20
+	subtotal = 30
+	print(subtotal)
+	
+	
+	
+	
+	
+	
+	journalist
+	edit
+	influence
+	published
+	media 
+	photographer
+	
+	features 
+
+	
+	
+	
+	The evening news features the stories that 
+	deserve the most attention.
+	
+	The president's letters were published in a book after he died.
+	
+	
+	published
+
+	features
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

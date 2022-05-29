@@ -1,0 +1,10 @@
+Shortest path does not exist IF there is a negative edged weight cycle  
+
+        -6
+       _________
+       |       |    
+1      ▼       |
+A ---> B ----> C ----> D
+          5        4 
+
+no SHORTEST path from A to D

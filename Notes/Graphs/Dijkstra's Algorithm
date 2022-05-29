@@ -1,0 +1,44 @@
+predV - aka predecessor is the previous vertex along the shortest path from the start vertex
+so each node in a graph has:
+1) at least one distance pointer
+2) a predecessor poitner
+
+
+DijkstraShortestPath(startV) {
+   for each vertex currentV in graph {
+      currentV⇢distance = Infinity
+      currentV⇢predV = 0
+      Enqueue currentV in unvisitedQueue
+   }
+
+   // startV has a distance of 0 from itself
+   startV⇢distance = 0
+
+   while (unvisitedQueue is not empty) {
+      // Visit vertex with minimum distance from startV
+      currentV = DequeueMin unvisitedQueue
+
+      for each vertex adjV adjacent to currentV {
+         edgeWeight = weight of edge from currentV to adjV
+         alternativePathDistance = currentV⇢distance + edgeWeight
+            
+         // If shorter path from startV to adjV is found,
+         // update adjV's distance and predecessor
+         if (alternativePathDistance < adjV⇢distance) {
+            adjV⇢distance = alternativePathDistance
+            adjV⇢predV = currentV
+         }
+      }
+   }
+}
+
+Algorithm Analysis:
+
+unvisited vertex queue is implemented using a list, 
+the runtime for Dijkstra's shortest path algorithm is O(V). 
+The outer loop executes V times to visit all vertices. In each
+outer loop execution, dequeuing the vertex from the queue requires
+searching all vertices in the list, which has a runtime of O(V). 
+For each vertex, the algorithm follows the subset of edges to adjacent 
+vertices; following a total of E edges across all loop executions. Given 
+E < V, the runtime is O(V*V + E) = O(V + E) = O(V)

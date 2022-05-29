@@ -19,7 +19,7 @@ Need an i and j index variable to traverse the list
 	i - starts at the beginning of list and find elements greater than the pivot
 	j - starts at the end of list and find elements less than the pivot
 
-
+ 
 Partitioning Algorithm
 
 Partition(low, high) 

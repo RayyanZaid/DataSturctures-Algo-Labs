@@ -1,0 +1,5 @@
+Adjacency Lists - size of O(V+E) because each vertex appears once (the array of vertices) and each each edge appears twice (the lists of edges for each vertex)
+However, time to search for an adjacent matrix is O(V) as a vertex's adjacency list has to be traversed to look for another vertex
+
+Adjacency Matrix - size is O(V^2) because it is a square matrix that has V number rows and columns
+Advantage is that the search for an adjacent vertex is just O(1) because you just need to check if the location in the matrix is a 1 or 0.
