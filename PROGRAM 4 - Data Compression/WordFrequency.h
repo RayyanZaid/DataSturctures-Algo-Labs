@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#ifndef WORDFREQUENCY_H
+#define WORDFREQUENCY_H
+
 class WordFrequency {
     private:
         string word;
@@ -44,3 +47,5 @@ class WordFrequency {
 
     
 };
+
+#endif

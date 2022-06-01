@@ -1,0 +1,35 @@
+Need to be a directed and acyclic
+If C ---> A , then C must come before A in the ordering
+
+A topological sort's first vertex must have 0 incoming edges.
+
+GraphTopologicalSort(graph) {
+   resultList = empty list of vertices
+   noIncoming = list of all vertices with no incoming edges
+   remainingEdges = list of all edges in the graph
+
+   while (noIncoming is not empty) {
+      currentV = remove any vertex from noIncoming
+      Add currentV to resultList
+      outgoingEdges = remove currentV's outgoing edges from remainingEdges
+      for each edge currentE in outgoingEdges {
+         inCount = GraphGetIncomingEdgeCount(remainingEdges, currentE⇢toVertex)
+         if (inCount == 0)
+            Add currentE⇢toVertex to noIncoming
+      }
+   }
+   return resultList
+}
+
+
+GraphGetIncomingEdgeCount(edgeList, vertex) {
+   count = 0
+   for each edge currentE in edgeList {
+      if (edge⇢toVertex == vertex) {
+         count = count + 1
+      }
+   }
+   return count
+}
+The two vertex lists used in the topological sort algorithm will at most contain all the vertices in the graph. The remaining-edge list will at most contain all edges in the graph. Therefore, for a graph with a set of vertices V and a set of edges E, the space complexity of topological sorting is 
+O(V+E). If a graph implementation allows for retrieval of a vertex's incoming and outgoing edges in constant time, then the time complexity of topological sorting is also O(V+E)

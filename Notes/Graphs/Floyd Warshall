@@ -1,0 +1,10 @@
+The Floyd-Warshall algorithm builds a |V| x |V| matrix and therefore has a 
+space complexity of O(V^2) . The matrix is constructed with a runtime complexity of O(V^3).
+
+The Floyd-Warshall algorithm initializes the shortest path lengths matrix in 3 steps.
+
+Every entry is assigned with infinity.
+Each entry representing the path from a vertex to itself is assigned with 0.
+For each edge from X to Y in the graph, the matrix entry for the path from X to Y is initialized with the edge's weight.
+
+ |V| x |V| matrix of values representing the shortest path lengths between all vertex pairs in a graph.

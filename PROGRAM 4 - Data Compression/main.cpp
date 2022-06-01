@@ -3,6 +3,7 @@
 #include <vector>
 #include "WordFrequency.h"
 #include "HashEncoder.h"
+#include <algorithm>
 using namespace std;
 
 
@@ -40,15 +41,16 @@ int main() {
     for(int i = 0; i < 20; i++) {
         existingWords[i].setCode(i+1);
     }
-
-    for(int i = 0; i < 20; i++) {
-        cout << existingWords[i].getCode() << endl;
-    }
-
+    
     // Create a hashtable that stores each word to a corresponding index
 
-    HashEncoder(20);
+    HashEncoder encoder(20);
     
+    
+    
+    
+
+
 
     
     

@@ -1,0 +1,69 @@
+
+
+E = # of edges
+V = # of vertices
+
+In Bellman Ford, each edge is "relaxed" V-1 times.
+
+After each iteration, a vertex's current distance and 
+predecessor may not yet be the shortest path from the 
+start vertex. The shortest path may propagate to only one 
+vertex each iteration, requiring V-1 iterations to propagate 
+from the start vertex to all other vertices.
+
+So O(E(V-1)) or O(n^2)
+
+maximum number of edges =   n(n-1)  /  2
+
+so worst case is O(n^3) if complete graph
+
+The runtime for the Bellman-Ford shortest path algorithm is O(VE). 
+The outer loop (the main iterations) executes V-1 times. In each 
+outer loop execution, the algorithm visits each vertex and follows 
+the subset of edges to adjacent vertices, following a total of E 
+edges across all loop executions.
+
+
+ALGO
+
+BellmanFord(startV) {
+   for each vertex currentV in graph {
+      currentV⇢distance = Infinity
+      currentV⇢predV = null
+   }
+
+   // startV has a distance of 0 from itself
+   startV⇢distance = 0                
+
+   for i = 1 to number of vertices - 1 { // Main iterations
+      for each vertex currentV in graph {
+         for each vertex adjV adjacent to currentV {
+            edgeWeight = weight of edge from currentV to adjV
+            alternativePathDistance = currentV⇢distance + edgeWeight
+                  
+            // If shorter path from startV to adjV is found,
+            // update adjV's distance and predecessor
+            if (alternativePathDistance < adjV⇢distance) {
+               adjV⇢distance = alternativePathDistance
+               adjV⇢predV = currentV
+            }
+         }
+      }
+   }
+
+   // Check for a negative edge weight cycle
+   for each vertex currentV in graph {
+      for each vertex adjV adjacent to currentV {
+         edgeWeight = weight of edge from currentV to adjV
+         alternativePathDistance = currentV⇢distance + edgeWeight
+
+         // If shorter path from startV to adjV is still found,
+         // a negative edge weight cycle exists
+         if (alternativePathDistance < adjV⇢distance) {
+            return false
+         }
+      }
+   }
+
+   return true
+}

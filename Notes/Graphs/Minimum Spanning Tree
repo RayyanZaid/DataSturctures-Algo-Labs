@@ -1,0 +1,2 @@
+minimum spanning tree is a subset of the graph's edges that connect all vertices in the graph together with the minimum sum of edge weights. 
+The graph must be weighted and connected. A connected graph contains a path between every pair of vertices.
